@@ -12,7 +12,7 @@ class UserInput(BaseModel):
 
 
 class RagSearchTool(BaseTool):
-    name = "HappyFace Rag Search Tool"
+    name = "HappyFaceRagSearchTool"
     description = "Use the tool when you need to answer anything in the context of HappyFace service platform"
     args_schema: Type[BaseModel] = UserInput
 

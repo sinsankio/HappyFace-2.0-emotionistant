@@ -1,5 +1,6 @@
 from dotenv import dotenv_values
 from langchain_openai import ChatOpenAI
+from pydantic import SecretStr
 
 from configs.agent import *
 

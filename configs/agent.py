@@ -9,16 +9,16 @@ Answer the following questions as best you can. You have access to the following
 
 {tools}
 
-Also you you have access to the following chat history you have already built with your user so far.
+Also you you have access to the following chat history you have already built with your user so far:
 
 {chat_history}
 
 Use the following format when constructing your response:
 
 Question: the input question you must answer
-Thought: you should always think about what to do. chat history may help you to arrive at a better thought.
+Thought: you should always think about what to do. use chat history to arrive at better thoughts.
 Action: the action to take, should be one or more of [{tool_names}]
-Action Input: the input to the action
+Action Input: the input to the action.
 Observation: the result of the action
 ... (this Thought/Action/Action Input/Observation can repeat N times)
 Thought: I now know the final answer
@@ -44,4 +44,4 @@ Begin!
 Question: {input}
 Thought:{agent_scratchpad}
 '''
-READER_MODEL_NAME = "gpt-3.5-turbo-0125"
+READER_MODEL_NAME = "gpt-3.5-turbo"

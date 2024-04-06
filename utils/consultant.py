@@ -135,7 +135,7 @@ def generate_query_consultancy(
         chat_history: list,
         query: str
 ) -> str:
-    consultancy_chain = load_consultancy_init_llm_chain()
+    consultancy_chain = load_consultancy_query_llm_chain()
     response = consultancy_chain.invoke({
         "personal_profile": personal_profile,
         "emotion_engagement_profile": emotion_engagement_profile,

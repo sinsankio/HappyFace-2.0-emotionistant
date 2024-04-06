@@ -1,3 +1,5 @@
+from typing import Any
+
 from dotenv import dotenv_values
 from langchain.chains import ConversationalRetrievalChain
 from langchain.memory import ConversationBufferMemory
@@ -15,7 +17,7 @@ CONV_BUFF_MEMORY = None
 CONV_RET_CHAIN = None
 
 
-def load_reader_model_api_key():
+def load_reader_model_api_key() -> str:
     global READER_MODEL_API_KEY
 
     if not READER_MODEL_API_KEY:
@@ -24,7 +26,7 @@ def load_reader_model_api_key():
     return READER_MODEL_API_KEY
 
 
-def load_embeddings():
+def load_embeddings() -> OpenAIEmbeddings:
     global EMBEDDING_MODEL
 
     if not EMBEDDING_MODEL:
@@ -36,7 +38,7 @@ def load_embeddings():
     return EMBEDDING_MODEL
 
 
-def load_vector_db():
+def load_vector_db() -> Any:
     global VECTOR_DB
 
     if not VECTOR_DB:
@@ -48,7 +50,7 @@ def load_vector_db():
     return VECTOR_DB
 
 
-def load_reader_model():
+def load_reader_model() -> ChatOpenAI:
     global READER_MODEL
 
     if not READER_MODEL:
@@ -60,7 +62,7 @@ def load_reader_model():
     return READER_MODEL
 
 
-def load_buffer_memory():
+def load_buffer_memory() -> ConversationBufferMemory:
     global CONV_BUFF_MEMORY
 
     if not CONV_BUFF_MEMORY:
@@ -71,7 +73,7 @@ def load_buffer_memory():
     return CONV_BUFF_MEMORY
 
 
-def load_conv_ret_chain():
+def load_conv_ret_chain() -> ConversationalRetrievalChain:
     global CONV_RET_CHAIN
 
     if not CONV_RET_CHAIN:
@@ -84,7 +86,7 @@ def load_conv_ret_chain():
     return CONV_RET_CHAIN
 
 
-def generate_query_answer(query: str):
+def generate_query_answer(query: str) -> str:
     conversational_chain = load_conv_ret_chain()
-    response = conversational_chain({"question": query})
+    response = conversational_chain.invoke({"question": query})
     return response["answer"]

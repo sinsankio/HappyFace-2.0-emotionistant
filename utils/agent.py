@@ -7,7 +7,7 @@ READER_MODEL_API_KEY = None
 READER_MODEL = None
 
 
-def load_reader_model_api_key():
+def load_reader_model_api_key() -> str:
     global READER_MODEL_API_KEY
 
     if not READER_MODEL_API_KEY:
@@ -16,7 +16,7 @@ def load_reader_model_api_key():
     return READER_MODEL_API_KEY
 
 
-def load_reader_model():
+def load_reader_model() -> ChatOpenAI:
     global READER_MODEL
 
     if not READER_MODEL:

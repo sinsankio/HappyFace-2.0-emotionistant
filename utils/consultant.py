@@ -115,31 +115,26 @@ def generate_summarized_profile(profile: dict) -> str:
     return response["text"]
 
 
-def generate_init_consultancy(
+def generate_consultancy(
         personal_profile: str,
         emotion_engagement_profile: str,
-        chat_history: list
+        chat_history: list | str,
+        query: str | None = None
 ) -> str:
-    consultancy_chain = load_consultancy_init_llm_chain()
-    response = consultancy_chain.invoke({
-        "personal_profile": personal_profile,
-        "emotion_engagement_profile": emotion_engagement_profile,
-        "chat_history": chat_history
-    })
-    return response["text"]
+    if not query:
+        consultancy_chain = load_consultancy_init_llm_chain()
+        response = consultancy_chain.invoke({
+            "personal_profile": personal_profile,
+            "emotion_engagement_profile": emotion_engagement_profile,
+            "chat_history": chat_history
+        })
+    else:
+        consultancy_chain = load_consultancy_query_llm_chain()
+        response = consultancy_chain.invoke({
+            "personal_profile": personal_profile,
+            "emotion_engagement_profile": emotion_engagement_profile,
+            "chat_history": chat_history,
+            "query": query
+        })
 
-
-def generate_query_consultancy(
-        personal_profile: str,
-        emotion_engagement_profile: str,
-        chat_history: list,
-        query: str
-) -> str:
-    consultancy_chain = load_consultancy_query_llm_chain()
-    response = consultancy_chain.invoke({
-        "personal_profile": personal_profile,
-        "emotion_engagement_profile": emotion_engagement_profile,
-        "chat_history": chat_history,
-        "query": query
-    })
     return response["text"]

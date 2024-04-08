@@ -10,8 +10,8 @@ from configs.consultant import *
 
 READER_MODEL_API_KEY = None
 READER_MODEL = None
-SUMMARIZER_PROMPT = None
-SUMMARIZER_LLM_CHAIN = None
+PROFILE_SUMMARIZER_PROMPT = None
+PROFILE_SUMMARIZER_CHAIN = None
 CONSULTANCY_INIT_PROMPT = None
 CONSULTANCY_INIT_LLM_CHAIN = None
 CONSULTANCY_QUERY_PROMPT = None
@@ -42,7 +42,7 @@ def load_reader_model() -> ChatNVIDIA:
 
 
 def load_summarizer_prompt() -> PromptTemplate:
-    global SUMMARIZER_PROMPT
+    global PROFILE_SUMMARIZER_PROMPT
 
     if not SUMMARIZER_PROMPT:
         SUMMARIZER_PROMPT = PromptTemplate(
@@ -76,7 +76,7 @@ def load_consultancy_query_prompt() -> PromptTemplate:
 
 
 def load_summarizer_llm_chain() -> LLMChain:
-    global SUMMARIZER_LLM_CHAIN
+    global PROFILE_SUMMARIZER_CHAIN
 
     if not SUMMARIZER_LLM_CHAIN:
         SUMMARIZER_LLM_CHAIN = LLMChain(

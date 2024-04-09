@@ -58,4 +58,4 @@ Begin!
 Question: {query}
 Thought:{agent_scratchpad}
 '''
-READER_MODEL_NAME = "gpt-3.5-turbo"
+READER_MODEL_NAME = "gpt-3.5-turbo-0125"

@@ -1,4 +1,3 @@
-import json
 import os
 
 from dotenv import dotenv_values
@@ -10,12 +9,10 @@ from configs.consultant import *
 
 READER_MODEL_API_KEY = None
 READER_MODEL = None
-PROFILE_SUMMARIZER_PROMPT = None
-PROFILE_SUMMARIZER_CHAIN = None
 CONSULTANCY_INIT_PROMPT = None
-CONSULTANCY_INIT_LLM_CHAIN = None
+CONSULTANCY_INIT_CHAIN = None
 CONSULTANCY_QUERY_PROMPT = None
-CONSULTANCY_QUERY_LLM_CHAIN = None
+CONSULTANCY_QUERY_CHAIN = None
 
 
 def load_reader_model_api_key() -> str:
@@ -41,24 +38,12 @@ def load_reader_model() -> ChatNVIDIA:
     return READER_MODEL
 
 
-def load_summarizer_prompt() -> PromptTemplate:
-    global PROFILE_SUMMARIZER_PROMPT
-
-    if not SUMMARIZER_PROMPT:
-        SUMMARIZER_PROMPT = PromptTemplate(
-            input_variables=["profile"],
-            template=SUMMARIZER_PROMPT_TEMPLATE,
-            template_format="jinja2"
-        )
-    return SUMMARIZER_PROMPT
-
-
 def load_consultancy_init_prompt() -> PromptTemplate:
     global CONSULTANCY_INIT_PROMPT
 
     if not CONSULTANCY_INIT_PROMPT:
         CONSULTANCY_INIT_PROMPT = PromptTemplate(
-            input_variables=["personal_profile", "emotion_engagement_profile", "chat_history"],
+            input_variables=["personal_profile", "emotion_engagement_profile"],
             template=CONSULTANCY_INIT_PROMPT_TEMPLATE
         )
     return CONSULTANCY_INIT_PROMPT
@@ -69,72 +54,55 @@ def load_consultancy_query_prompt() -> PromptTemplate:
 
     if not CONSULTANCY_QUERY_PROMPT:
         CONSULTANCY_QUERY_PROMPT = PromptTemplate(
-            input_variables=["personal_profile", "emotion_engagement_profile", "chat_history", "query"],
+            input_variables=["query", "recommendation", "max_guidelines"],
             template=CONSULTANCY_QUERY_PROMPT_TEMPLATE
         )
     return CONSULTANCY_QUERY_PROMPT
 
 
-def load_summarizer_llm_chain() -> LLMChain:
-    global PROFILE_SUMMARIZER_CHAIN
+def load_consultancy_init_chain() -> LLMChain:
+    global CONSULTANCY_INIT_CHAIN
 
-    if not SUMMARIZER_LLM_CHAIN:
-        SUMMARIZER_LLM_CHAIN = LLMChain(
-            llm=load_reader_model(),
-            prompt=load_summarizer_prompt()
-        )
-    return SUMMARIZER_LLM_CHAIN
-
-
-def load_consultancy_init_llm_chain() -> LLMChain:
-    global CONSULTANCY_INIT_LLM_CHAIN
-
-    if not CONSULTANCY_INIT_LLM_CHAIN:
-        CONSULTANCY_INIT_LLM_CHAIN = LLMChain(
+    if not CONSULTANCY_INIT_CHAIN:
+        CONSULTANCY_INIT_CHAIN = LLMChain(
             llm=load_reader_model(),
             prompt=load_consultancy_init_prompt()
         )
-    return CONSULTANCY_INIT_LLM_CHAIN
+    return CONSULTANCY_INIT_CHAIN
 
 
-def load_consultancy_query_llm_chain() -> LLMChain:
-    global CONSULTANCY_QUERY_LLM_CHAIN
+def load_consultancy_query_chain() -> LLMChain:
+    global CONSULTANCY_QUERY_CHAIN
 
-    if not CONSULTANCY_QUERY_LLM_CHAIN:
-        CONSULTANCY_QUERY_LLM_CHAIN = LLMChain(
+    if not CONSULTANCY_QUERY_CHAIN:
+        CONSULTANCY_QUERY_CHAIN = LLMChain(
             llm=load_reader_model(),
             prompt=load_consultancy_query_prompt()
         )
-    return CONSULTANCY_QUERY_LLM_CHAIN
+    return CONSULTANCY_QUERY_CHAIN
 
 
-def generate_summarized_profile(profile: dict) -> str:
-    summarizer_chain = load_summarizer_llm_chain()
-    json_profile = json.dumps(profile, indent=2)
-    response = summarizer_chain.invoke({"profile": json_profile})
+def generate_init_consultancy(
+        bio_data_profile: str,
+        emotion_engagement_profile: str
+) -> str:
+    consultancy_chain = load_consultancy_init_chain()
+    response = consultancy_chain.invoke({
+        "bio_data_profile": bio_data_profile,
+        "emotion_engagement_profile": emotion_engagement_profile
+    })
     return response["text"]
 
 
-def generate_consultancy(
-        personal_profile: str,
-        emotion_engagement_profile: str,
-        chat_history: list | str,
-        query: str | None = None
+def generate_query_consultancy(
+        query: str,
+        recommendation: str,
+        max_guidelines: int | str = 10
 ) -> str:
-    if not query:
-        consultancy_chain = load_consultancy_init_llm_chain()
-        response = consultancy_chain.invoke({
-            "personal_profile": personal_profile,
-            "emotion_engagement_profile": emotion_engagement_profile,
-            "chat_history": chat_history
-        })
-    else:
-        consultancy_chain = load_consultancy_query_llm_chain()
-        response = consultancy_chain.invoke({
-            "personal_profile": personal_profile,
-            "emotion_engagement_profile": emotion_engagement_profile,
-            "chat_history": chat_history,
-            "query": query
-        })
-
+    consultancy_chain = load_consultancy_query_chain()
+    response = consultancy_chain.invoke({
+        "query": query,
+        "recommendation": recommendation,
+        "max_guidelines": str(max_guidelines).upper(),
+    })
     return response["text"]

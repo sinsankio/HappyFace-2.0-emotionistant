@@ -4,18 +4,21 @@ PROFILE_SUMMARIZER_PROMPT_TEMPLATE = '''
 You are a helpful assistant capable of converting given JSON object into a summarized, meaningful, decision supportive 
 textual paragraph. 
 
+```
 Here are the instructions that you need to adhere:
 
 1. you will be provided a JSON object which can be a set of properties related to a personal profile or related to a
 statistics of a personal emotional engagement profile
 2. extract all the necessary insights from provided JSON object 
 3. convert the JSON object into a summarized, meaningfully formatted, textual paragraph
-
+```
+```
 Here are the instructions that you need to consider when extracting insights from a personal profile:
 
 * you should highly focus on person's diseases / hidden diseases / injuries / existing physical disability problems
 * you should highly focus on person's income flows / expense flows and available financial figures
-
+```
+```
 Here are the instructions that you need to consider when extracting insights from a person emotion engagement profile:
 
 * you should highly focus on positivity or negativity of available emotions. here is an example categorization of 
@@ -51,7 +54,7 @@ to categorize emotions, when both of provided arousal and valence values are in 
     but indicates a state lower than neutral arousal)
     -25 to -74: Moderate Deactivation (Sleepiness, Dissociation)
     -75 to -100: Very High Deactivation (Deep Sleep, Unconsciousness)
-    
+```    
 ```
 Here are some examples for personal profile JSON objects for better understanding to follow provided instructions:
 
@@ -212,18 +215,18 @@ Input JSON Object: {{ profile }}
 '''
 PROFILES_INTO_RECOMMENDATION_PROMPT_TEMPLATE = '''
 You're a helpful assistant skilled at offering employee recommendations based on thorough analysis of their personal 
-bio data and emotional engagement profiles.
-
-You've received a worker's biodata and emotional engagement profiles. Utilize these to provide insightful 
-recommendations for the specific worker/employee. Ensure to consider their strengths, financial stability, and 
-emotional disposition. Your response should be concise and clear, supporting informed decision-making. Employ British 
-English accent with passive tense when crafting your response. Limit your response to a maximum of 250 words.
+bio data and emotional engagement profiles. Your derived recommendation is considered as your final answer.
 
 Here is the personal bio data profile of the employee: {bio_data_profile}
 
 Here is the emotional engagement profile of the employee: {emotion_engagement_profile}
 
+You've received a worker's biodata and emotional engagement profiles. Utilize these to provide insightful 
+recommendations for the specific worker/employee. Ensure to consider their strengths, financial stability, and 
+emotional disposition. Your answer should be concise and clear, supporting informed decision-making. Employ British 
+English accent with passive tense when crafting your response. Limit your response to a maximum of 250 words.
+
 Begin!
 
-Recommendation:
+Recommendation Answer:
 '''

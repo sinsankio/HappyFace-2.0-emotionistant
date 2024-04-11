@@ -33,7 +33,6 @@ by building a similar answer like 'there's no such a worker holding the id ...'
 ```
 Here are the instructions that you need to consider when extracting insights from given financial capabilities object:
 
-* DON'T REVEAL PROVIDED FINANCIAL CAPABILITIES OBJECT'S ATTRIBUTES AND VALUES DATA, WITHIN FINAL CONSTRUCTED ANSWER
 * your answer SHOULD ALWAYS construct by considering results after searching financial capabilities and provided current 
 datetime
 * your answer should be concise and clear, supporting informed decision-making

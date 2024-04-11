@@ -7,6 +7,7 @@ from langchain_core.prompts import PromptTemplate
 from langchain_nvidia_ai_endpoints import ChatNVIDIA
 
 from configs.finance import *
+from utils.time import get_current_datetime
 
 FINANCIAL_CAPABILITY_DB = None
 READER_MODEL_API_KEY = None
@@ -39,7 +40,7 @@ def load_financial_capability_search_prompt() -> PromptTemplate:
 
     if not FINANCIAL_CAPABILITY_SEARCH_PROMPT:
         FINANCIAL_CAPABILITY_SEARCH_PROMPT = PromptTemplate(
-            input_variables=["financial_capabilities", "query"],
+            input_variables=["financial_capabilities", "current_datetime", "query"],
             template=FINANCIAL_CAPABILITY_SEARCH_PROMPT_TEMPLATE,
             template_format="jinja2"
 
@@ -77,6 +78,7 @@ def generate_financial_capability_search_results(
     financial_capability_search_chain = load_financial_capability_search_chain()
     response = financial_capability_search_chain.invoke({
         "query": query,
+        "current_datetime": get_current_datetime(),
         "financial_capabilities": load_financial_capability_db()
     })
     return response["text"]

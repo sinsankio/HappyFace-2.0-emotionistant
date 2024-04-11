@@ -8,9 +8,14 @@ organization:
 
 {{ financial_capabilities }}
 
+Here is the current datetime which you SHOULD ALWAYS consider when generating a final insightful answer relative to the
+current date and time:
+
+{{ current_datetime }}
+
 Here is the user query you have already received with:
 
-{{ query }}
+{{ query }}, Assume that, current datetime for today is: {{ current_datetime }}
 
 ```
 Here are the instructions that you should always follow to construct your final answer:
@@ -20,7 +25,7 @@ organization
 2. you should perform a searching operation on given financial capability object to extract out the worker/employee 
 object by derived employee id
 3. if there exists an employee/worker object corresponds to the given id, you have to work on analyzing query request
-in order to generate insightful final answer
+in order to generate insightful final answer RELATIVE TO THE provided current datetime
 4. if there doesn't exist an employee/worker object corresponds to the given id, you have to construct your final answer
 by building a similar answer like 'there's no such a worker holding the id ...'
 ```
@@ -29,6 +34,8 @@ by building a similar answer like 'there's no such a worker holding the id ...'
 Here are the instructions that you need to consider when extracting insights from given financial capabilities object:
 
 * DON'T REVEAL PROVIDED FINANCIAL CAPABILITIES OBJECT'S ATTRIBUTES AND VALUES DATA, WITHIN FINAL CONSTRUCTED ANSWER
+* your answer SHOULD ALWAYS construct by considering results after searching financial capabilities and provided current 
+datetime
 * your answer should be concise and clear, supporting informed decision-making
 * employ British English accent when crafting your response
 * limit your response to a maximum of 100 words
@@ -94,20 +101,22 @@ instructions:
 * Example 01:
 
 input: What are the available financial offers which can be received to the employee who owns the id of '1', if today 
-is 25th of April?
+is {{ current_datetime }}?
 
-output: Since today is April 25th, there's no any offers available to the given employee at this time.
+output: Since today is {{ current_datetime }}, there's no any offers available to the given employee at this time.
 
 * Example 02:
 
-input: How much it will impact to the monthly salary of the employee whose id is '1', if today is 13th of January?
+input: How much it will impact to the monthly salary of the employee whose id is '1', if today is 
+{{ current_datetime }}?
 
 output: The employee's monthly salary will be reduced by 1000 LKR, since the employee has been encountered with a 
 salary deduction due to a reason of company equipment damage.
 
 * Example 03:
 
-input: What are the available loans for the employee who is currently registered on the employee id of 'E1'?
+input: What are the available loans for the employee who is currently registered on the employee id of 'E1' relative to
+the current datetime: {{ current_datetime }}?
 
 output: Sorry, there's no any employee available with the requested employee id.
 ```

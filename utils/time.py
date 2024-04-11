@@ -45,7 +45,7 @@ def load_time_capability_search_prompt() -> PromptTemplate:
 
     if not TIME_CAPABILITY_SEARCH_PROMPT:
         TIME_CAPABILITY_SEARCH_PROMPT = PromptTemplate(
-            input_variables=["time_capabilities", "query"],
+            input_variables=["time_capabilities", "current_datetime", "query"],
             template=TIME_CAPABILITY_SEARCH_PROMPT_TEMPLATE,
             template_format="jinja2"
 
@@ -83,6 +83,7 @@ def generate_time_capability_search_results(
     time_capability_search_chain = load_time_capability_search_chain()
     response = time_capability_search_chain.invoke({
         "query": query,
+        "current_datetime": get_current_datetime(),
         "time_capabilities": load_time_capability_db()
     })
     return response["text"]

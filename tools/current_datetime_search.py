@@ -9,7 +9,7 @@ from utils.time import get_current_datetime
 class CurrentDateTimeSearchTool(BaseTool):
     """Tool that results current date and time"""
 
-    name: str = "current_datetime_search_tool"
+    name: str = "CurrentDateTimeSearchTool"
     description: str = (
         "A search tool optimized for results of current date and time."
         " Useful when you need to answer questions based on current date and time."

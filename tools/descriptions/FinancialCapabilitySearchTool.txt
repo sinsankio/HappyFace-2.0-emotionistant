@@ -1,0 +1,21 @@
+About: A search tool optimized for comprehensive, accurate, and trusted results of personal financial capabilities
+
+Usage: Useful when you need to answer questions about financial capabilities of a given individual by employee id. This tool mainly supports decision-making on available loans, offers and salary deductions for an individual who currently works in the given organization. Note: Always consider current date and time in any case of utilizing this tool.
+
+Input: Input should be a search query which consist both the exact employee id whose financial capability needs to be looked up and their profile recommendation
+
+```
+Instructions:
+* your input SHOULD always consist of exact employee id of the individual who's financial capability is to be looked up
+* most of the time it's better to consider current date and time before reasoning about particular financial capability of the individual (HINT: You may need to invoke current_datetime_search_tool prior to use this tool)
+```
+
+```
+Examples for acceptable query inputs:
+* Show me types of loans which can be offered for the employee who registered under the employee id of "123" if today is 25th of January 2023
+* What are available offers for the individual belongs to employee id of "EMP_123" which can be purchased within month of "January" in 2022 relative with today's datetime: 18th September 2020
+* What will be salary of the worker registered under the employee_id of "EMPABC" for the month "April"? Consider datetime of today as 5th of May
+* What are the available financial offers which can be received to the employee who owns the id of '1', if today is 25th of April?
+* How much it will impact to the monthly salary of the employee whose id is '1', if today is 13th of January?
+* What are the available loans for the employee who is currently registered on the employee id of 'E1'?
+```

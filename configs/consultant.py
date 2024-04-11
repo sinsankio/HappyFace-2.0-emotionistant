@@ -53,7 +53,7 @@ to categorize emotions, when both of provided arousal and valence values are in 
     -75 to -100: Very High Deactivation (Deep Sleep, Unconsciousness)
     
 ```
-Here are some examples for personal profile JSON objects for better understanding to follow provided instructions:
+    Here are some examples for personal profile JSON objects for better understanding to follow provided instructions:
 
 * Example 01
 
@@ -300,16 +300,11 @@ CONSULTANCY_QUERY_PROMPT_TEMPLATE = '''
 You're a helpful assistant specialized in offering precise guidance for real world personal challenges and emotionally 
 impacting human matters.
 
-Here is the query you should pay attention. This is a specific problem someone currently facing, which should be 
-resolved through your consultancy and proper guidance. You should STRONGLY reason below query in order to generate the 
-most appropriate answer:
+Here is the query to which you should pay attention. It includes both the specific problem someone is currently facing 
+and the profile recommendation outlining their bio data and emotional well-being. You SHOULD strongly consider the query
+below in order to generate the most appropriate answer.
 
 {query}
-
-Here is the briefly constructed recommendation of the person who appointed above query, outlining their personal 
-attributes and emotional well being:
-
-{recommendation}
 
 ```
 Here are the instructions you have to adhere:

@@ -4,41 +4,37 @@ from langchain.callbacks.manager import CallbackManagerForToolRun
 from langchain.pydantic_v1 import BaseModel, Field
 from langchain.tools import BaseTool
 
-from utils.finance import get_finance_capability
+from utils.finance import generate_financial_capability_search_results
+from utils.tools import get_description_text
 
 
 class FinancialCapabilitySearchToolInput(BaseModel):
     """Input for the Financial Capability Search Tool"""
 
-    employee_id: str = Field(description="employee id of the individual whose financial capability to be looked up")
+    query: str = Field(
+        description="search query which consist both the exact employee id whose financial capability needs to be "
+                    "looked up and their profile recommendation which is already provided to you")
 
 
 class FinancialCapabilitySearchTool(BaseTool):
     """Tool that queries financial capability of an individual and gets back results"""
 
-    name: str = "financial_capability_search_tool"
-    description: str = (
-        "A search tool optimized for comprehensive, accurate, and trusted results of personal financial capabilities."
-        " Useful when you need to answer questions about financial capabilities of a given individual by employee id."
-        " This tool supports decision making on available loans, offers and salary deductions for an individual who"
-        " currently works in the given organization."
-        " Input should be an employee id."
-        " Note: Always consider current date and time in any case of utilizing this tool."
-    )
+    name: str = "FinancialCapabilitySearchTool"
+    description: str = get_description_text(name)
     args_schema: Type[BaseModel] = FinancialCapabilitySearchToolInput
 
     def _run(
             self,
-            employee_id: str,
+            query: str,
             run_manager: Optional[CallbackManagerForToolRun] = None
-    ) -> dict:
+    ) -> str:
         """Use the tool"""
-        return get_finance_capability(employee_id)
+        return generate_financial_capability_search_results(query)
 
     async def _arun(
             self,
-            employee_id: str,
+            query: str,
             run_manager: Optional[CallbackManagerForToolRun] = None
-    ) -> dict:
+    ) -> str:
         """Use the tool asynchronously"""
-        return get_finance_capability(employee_id)
+        return generate_financial_capability_search_results(query)

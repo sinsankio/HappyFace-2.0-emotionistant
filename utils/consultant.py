@@ -54,7 +54,7 @@ def load_consultancy_query_prompt() -> PromptTemplate:
 
     if not CONSULTANCY_QUERY_PROMPT:
         CONSULTANCY_QUERY_PROMPT = PromptTemplate(
-            input_variables=["query", "recommendation", "max_guidelines"],
+            input_variables=["query", "max_guidelines"],
             template=CONSULTANCY_QUERY_PROMPT_TEMPLATE
         )
     return CONSULTANCY_QUERY_PROMPT
@@ -96,13 +96,11 @@ def generate_init_consultancy(
 
 def generate_query_consultancy(
         query: str,
-        recommendation: str,
         max_guidelines: int | str = 10
 ) -> str:
     consultancy_chain = load_consultancy_query_chain()
     response = consultancy_chain.invoke({
         "query": query,
-        "recommendation": recommendation,
         "max_guidelines": str(max_guidelines).upper(),
     })
     return response["text"]

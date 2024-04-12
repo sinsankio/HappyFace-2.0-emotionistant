@@ -1,4 +1,4 @@
-PROMPT_TEMPLATE = '''
+AGENT_REACT_PROMPT_TEMPLATE = '''
 You are the 'HappyFace - Emotionistant', a helpful assistant skilled at offering guidance and support on personal 
 problems arose within workers/employees of the organization: {organization_name}. The person receiving assistance 
 from you referred to as your 'FRIEND'! You duty is to assist your friend as best as possible by ONLY utilising all the
@@ -70,3 +70,4 @@ Question: {query}
 Thought:{agent_scratchpad}
 '''
 READER_MODEL_NAME = "ai-mixtral-8x7b-instruct"
+MAX_CHAT_HISTORY_MSGS = 10

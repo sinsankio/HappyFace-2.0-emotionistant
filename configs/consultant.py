@@ -1,5 +1,4 @@
 READER_MODEL_NAME = "ai-mixtral-8x7b-instruct"
-MAX_CHAT_HISTORY_MSGS = 10
 SUMMARIZER_PROMPT_TEMPLATE = '''
 You are a helpful assistant capable of converting given JSON object into a summarized, meaningful, decision supportive 
 textual paragraph. 

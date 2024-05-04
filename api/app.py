@@ -1,14 +1,12 @@
 import uvicorn
-from fastapi import FastAPI, APIRouter, Body, HTTPException, status
+from fastapi import FastAPI, Body, HTTPException, status
 
 from api.models import *
 from services.init_consultancy import *
 from services.profile import *
 from services.query_consultancy import *
 
-app = FastAPI()
-
-prefix_router = APIRouter(prefix="/hf/v2/emotionistant")
+app = FastAPI(root_path="/happyface/v2/emotionistant")
 
 
 @app.post(
@@ -70,5 +68,4 @@ async def invoke_talk_to_agent(query_consultancy_input: QueryConsultancyInput = 
 
 
 if __name__ == "__main__":
-    app.include_router(prefix_router)
     uvicorn.run(app, port=5003)

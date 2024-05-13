@@ -1,0 +1,24 @@
+About: This is the search tool which is optimized for comprehensive, accurate, and trusted results related to the HappyFace service
+
+Usage: Useful when you need to answer questions about features and services about HappyFace platform
+
+Input: Input should be a search query
+
+```
+Instructions:
+* your input search query SHOULD always be a factual content search request about HappyFace service platform
+* your input search query SHOULD consist of requests representing functions, services, developers, updates or any detail which ONLY relevant only to the context of HappyFace platform awareness
+* always use clear, concise and convenient search queries for better performance
+* more readable and context-relevant search queries are always expected
+* DON'T USE THIS TOOL FOR QUERIES RELATED TO CONTEXTS SUCH AS: PERSONAL PROBLEMS, MENTAL ISSUES, ORGANIZATIONAL SERVICE INQUIRIES, FINANCIAL-AID AVAILABILITY SEARCHING OF AN EMPLOYEE OR TIME AVAILABILITY SEARCHING OF AN EMPLOYEE (Eg: How to overcome stress?, How to manage and maintain work-life balance?, Is the person belongs to employee id '123' eligible to take holidays in Saturday and Sunday?, Employee id 'abc' eligibility to get a personal loan)
+```
+
+```
+Examples for acceptable query inputs:
+* 'what is HappyFace?'
+* 'How was HappyFace is developed?'
+* 'Who created HappyFace? Who is the owner of HappyFace?'
+* 'Is our data accessible to any party, including administration of HappyFace?'
+* 'How does HappyFace guarantee privacy and security?'
+* 'What services does HappyFace offer to address personal problems and mental issues?'
+```

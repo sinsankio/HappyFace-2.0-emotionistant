@@ -1,0 +1,52 @@
+{
+  "records": [
+    {
+      "employee_id": "6239ecc6-fdc6-4174-8f2f-88e8f6c6964f",
+      "availableLoans": [
+        {
+          "id": 1,
+          "name": "medical",
+          "amount": 100000,
+          "currency": "LKR",
+          "periodToSettle": {
+            "years": 1,
+            "months": 6,
+            "days": 0
+          }
+        },
+        {
+          "id": 2,
+          "name": "personal",
+          "amount": 50000,
+          "currency": "LKR",
+          "periodToSettle": {
+            "years": 0,
+            "months": 6,
+            "days": 0
+          }
+        }
+      ],
+      "availableOffers": [
+        {
+          "id": 1,
+          "name": "christmas",
+          "amount": 5000,
+          "currency": "LKR",
+          "getActiveOn": {
+            "month": "December",
+            "date": 1
+          }
+        }
+      ],
+      "salaryDeductions": [
+        {
+          "id": 1,
+          "reason": "company equipment damage",
+          "amount": 1000,
+          "currency": "LKR",
+          "basis": "per month"
+        }
+      ]
+    }
+  ]
+}

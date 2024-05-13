@@ -1,4 +1,4 @@
 CHUNK_SIZE = 1000
 VECTOR_DB_FILE_PATH = "../../../vector_dbs/hf-faiss"
-EMBEDDING_MODEL_NAME = "text-embedding-3-large"
-READER_MODEL_NAME = "gpt-3.5-turbo-0125"
+EMBEDDING_MODEL_NAME = "ai-embed-qa-4"
+READER_MODEL_NAME = "ai-mixtral-8x7b-instruct"

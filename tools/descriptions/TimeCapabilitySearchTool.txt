@@ -1,0 +1,20 @@
+About: A search tool optimized for comprehensive, accurate, and trusted results of personal time capabilities
+
+Usage: Useful when you need to answer questions about time capabilities of a given individual by employee id. This tool mainly supports decision-making on working days, vacations and holidays for an individual who currently works in the given organization.
+
+Input: Input should be a search query which consist both the exact employee id whose financial capability needs to be looked up and their profile recommendation
+
+```
+Instructions:
+* your input SHOULD always consist of exact employee id of the individual who's time capability is to be looked up
+```
+
+```
+Examples for acceptable query inputs:
+* Check availability of requesting for holidays on weekdays: Monday and Tuesday, for the employee 'EMP_123'
+* When will be the vacation get started for the employee who's registered under employee id '123'?
+* What is the eligibility of requesting a holiday for the individual who belongs to the employee id of 'EMP-123-XYZ'?
+* How many holidays are available to the employee who owns the id of '1'?
+* Is the employee '1' is already able to spend a vacation on this month?
+* Will the employee who has been allocated under the id of 'EA-65' able to get work-off on tomorrow, after 4.00 pm?
+```

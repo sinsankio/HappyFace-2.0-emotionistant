@@ -1,0 +1,54 @@
+{
+  "records": [
+    {
+      "employee_id": "6239ecc6-fdc6-4174-8f2f-88e8f6c6964f",
+      "workingSlots": [
+        {
+          "id": 1,
+          "day": "monday",
+          "from": "8.00 AM",
+          "to": "6.00 PM"
+        },
+        {
+          "id": 2,
+          "day": "tuesday",
+          "from": "8.00 AM",
+          "to": "6.00 PM"
+        },
+        {
+          "id": 3,
+          "day": "wednesday",
+          "from": "8.00 AM",
+          "to": "3.00 PM"
+        },
+        {
+          "id": 4,
+          "day": "thursday",
+          "from": "8.00 AM",
+          "to": "6.00 PM"
+        },
+        {
+          "id": 5,
+          "day": "friday",
+          "from": "8.00 AM",
+          "to": "12.00 AM"
+        }
+      ],
+      "numOfHolidaysAvailable": 12,
+      "vacations": [
+        {
+          "id": 1,
+          "name": "christmas",
+          "from": {
+            "date": 23,
+            "month": "december"
+          },
+          "to": {
+            "date": 1,
+            "month": "january"
+          }
+        }
+      ]
+    }
+  ]
+}

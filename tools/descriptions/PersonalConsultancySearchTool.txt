@@ -1,0 +1,34 @@
+About: This is the search tool which is optimized for comprehensive, accurate, and trusted assistance/consultation/counselling/mentoring on personal problems and mental issues
+
+Usage: Useful when you need to answer questions about personal challenges and emotionally impacting human matters of individuals
+
+Input: Input should be a query which consist both of consultancy request and personal profile recommendation of the individual who's seeking consultancy
+
+```
+Instructions:
+* your input search query SHOULD always be a factual content search request about recovering from a personal/emotional/mental issue(s) which is currently facing by a certain individual
+* your input search query SHOULD always consist of requests representing actual problem together with the provided profile recommendation for the person who is currently seeking the assistance/consultation/counselling/mentoring
+* more readable and context-relevant search queries are always expected
+* use the exact profile recommendation which is already provided to you, when making a request from this tool
+* you are NOT ALLOWED to construct and pass your own personal recommendation within the search query, except the provided personal recommendation
+* DON'T USE THIS TOOL FOR QUERIES RELATED TO HAPPYFACE SERVICE PLATFORM, ORGANIZATIONAL SERVICE INQUIRIES, FINANCIAL-AID AVAILABILITY SEARCHING OF AN EMPLOYEE OR TIME AVAILABILITY SEARCHING OF AN EMPLOYEE (Eg: Is the person belongs to employee id '123' eligible to take holidays in Saturday and Sunday?, Employee id 'abc' eligibility to get a personal loan, What is the main purpose of using HappyFace?, To which organization HappyFace belongs to?)
+```
+
+Examples for acceptable query inputs:
+* 'Provide tips and practices to overcome from high work stress by maintaining work-life balance for an individual owns to the following profile recommendation:
+
+   "Taking into account the provided personal bio data and emotional engagement profiles, several recommendations can be made for this individual.
+   Firstly, considering the balanced financial situation of his nucleus family, it is suggested that this employee maintains his current employment status. This will ensure the stability of his family's income and expenses. Furthermore, with a salary of 10,000 LKR, he is contributing significantly to the overall family income, which is currently 30,000 LKR per month.
+   Secondly, the employee's emotional disposition indicates a predominant engagement with the emotion "happy." This is a positive attribute that can be leveraged in the workplace. Managers should consider assigning this employee tasks that require creativity and innovation, as positive emotions have been linked to enhanced problem-solving abilities and increased productivity.
+   Additionally, the difference in arousal levels between the two "happy" emotions suggests varying intensities of happiness in different contexts. Therefore, it is recommended that managers provide a diverse range of tasks and responsibilities to this employee. This will allow him to experience different levels of arousal and maintain his overall emotional engagement.
+   Finally, the employee's positive emotional disposition and balanced financial situation make him an ideal candidate for leadership roles in the future. Managers should consider providing him with opportunities for professional development and growth, such as training programs or mentorship opportunities. This will enable him to further enhance his skills and contribute positively to the organization."
+'
+
+* 'How you will consult for a person who is almost missed from their family due to arose personality mismatches between family members? Here is a brief description about the particular individual who is expecting your guidance:
+
+    "In light of the information provided, it is suggested that several recommendations be taken into consideration for the employee in question, Miss Jane Smith. Firstly, regarding her financial situation, it may be beneficial for her to explore opportunities for supplemental income, given the discrepancy between her family's monthly income and expenses. This could potentially alleviate some of the financial stress she may be experiencing due to her family's financial state.
+    Secondly, in regard to her emotional engagement profile, it is recommended that measures be taken to address her predominant negative emotions, particularly her sadness and fear. This could involve implementing employee assistance programs that offer counseling or therapy services. Additionally, providing resources on mindfulness and stress management techniques could be beneficial in helping her manage her anxiety.
+    Lastly, it is important to acknowledge her strengths. Although not specified in the profile, it is crucial to identify and highlight her abilities and achievements. Recognizing her contributions and providing constructive feedback can significantly enhance her emotional well-being and overall job satisfaction.
+    In conclusion, by addressing her financial stability and emotional disposition, while also acknowledging her strengths, Miss Smith can be better supported in her role, leading to improved emotional well-being and effectiveness in the workplace."
+'
+```

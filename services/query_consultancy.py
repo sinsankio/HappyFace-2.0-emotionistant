@@ -67,7 +67,7 @@ def load_agent_executor() -> AgentExecutor:
         AGENT_EXECUTOR = AgentExecutor(
             agent=load_agent(),
             tools=load_agent_tools(),
-            verbose=False,
+            verbose=True,
             handle_parsing_errors=True
         )
     return AGENT_EXECUTOR
